@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Valorant Agents, their unique abilities, and tactical roles in the game.">
+    <title>Valorant Agents</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background: #0a0a0a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4655;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background: #ff4655;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('valorant-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        #hero .btn {
+            padding: 15px 30px;
+            background: #ff4655;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background 0.3s ease;
+        }
+
+        #hero .btn:hover {
+            background: #ff2a3e;
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff4655;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Agents Section */
+        #agents {
+            padding: 80px 20px;
+            background: #121212;
+            text-align: center;
+        }
+
+        #agents h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff4655;
+        }
+
+        .agents-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .agent-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .agent-card img {
+            width: 100%;
+            border-radius: 10px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .agent-card h3 {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: #ff4655;
+        }
+
+        .agent-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .agent-info {
+            display: none;
+            background: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .agent-info-btn {
+            background: #ff4655;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .agent-info-btn:hover {
+            background: #ff2a3e;
+        }
+
+        .agent-info-btn:focus+.agent-info,
+        .agent-info-btn.active+.agent-info {
+            display: block;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff4655;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: #888;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Valorant</div>
+        <nav>
+            <ul>
+                <li><a href="#agents">Agents</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="overlay">
+            <h1>Discover Valorant Agents</h1>
+            <p>Learn more about each agent's unique abilities and role in the game.</p>
+            <a href="#agents" class="btn">Explore Agents</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Valorant</h2>
+        <p>Valorant is a team-based tactical first-person shooter developed by Riot Games. Players choose from a range
+            of unique agents, each with their own abilities that complement team strategies. The game emphasizes
+            strategy, team coordination, and skillful shooting.</p>
+    </section>
+
+    <section id="agents">
+        <h2>Meet the Agents</h2>
+        <div class="agents-container">
+            <div class="agent-card">
+                <img src="phoenix.jpg" alt="Phoenix">
+                <h3>Phoenix</h3>
+                <p>A duelist who uses fire-based abilities to heal and control space, Phoenix is a self-sufficient
+                    agent.</p>
+                <button class="agent-info-btn">Learn More</button>
+                <div class="agent-info">
+                    <ul>
+                        <li>Abilities: Fireball, Wall of Fire, Phoenix's Resurrection</li>
+                        <li>Role: Duelist</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="agent-card">
+                <img src="sage.jpg" alt="Sage">
+                <h3>Sage</h3>
+                <p>A healer and support agent, Sage can block entrances, heal teammates, and even revive them in battle.
+                </p>
+                <button class="agent-info-btn">Learn More</button>
+                <div class="agent-info">
+                    <ul>
+                        <li>Abilities: Healing Orb, Barrier Orb, Resurrection</li>
+                        <li>Role: Controller</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="agent-card">
+                <img src="jett.jpg" alt="Jett">
+                <h3>Jett</h3>
+                <p>Jett is an agile duelist who can dash around the map, making her one of the most mobile agents in the
+                    game.</p>
+                <button class="agent-info-btn">Learn More</button>
+                <div class="agent-info">
+                    <ul>
+                        <li>Abilities: Tailwind, Updraft, Cloudburst</li>
+                        <li>Role: Duelist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you want to know more or have any questions about the game, feel free to reach out!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Valorant. Developed by Riot Games.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.agent-info-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const agentInfo = this.nextElementSibling;
+                agentInfo.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
